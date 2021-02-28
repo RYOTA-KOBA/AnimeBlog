@@ -11,7 +11,8 @@
     "@prisma/client": "^2.17.0",
     "next": "latest",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-hook-form": "^6.15.4"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",

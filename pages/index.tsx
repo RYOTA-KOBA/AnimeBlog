@@ -1,9 +1,10 @@
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
-import styles from '../styles/Main.module.css';
-import { Post } from './../data/posts';
-import { PrismaClient } from '@prisma/client';
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import styles from "../styles/Main.module.css";
+import { Post } from "./../data/posts";
+import { PrismaClient } from "@prisma/client";
+import PostForm from "../components/PostForm";
 
 const prisma = new PrismaClient();
 
@@ -11,8 +12,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = await prisma.post.findMany();
   return {
     props: {
-      posts
-    }
+      posts,
+    },
   };
 };
 
@@ -29,9 +30,7 @@ const Home: React.FC<HomeProps> = (props) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to the Blog!
-        </h1>
+        <h1 className={styles.title}>Welcome to the Blog!</h1>
 
         <div className={styles.grid}>
           {props.posts.map((p: Post) => {
@@ -46,6 +45,7 @@ const Home: React.FC<HomeProps> = (props) => {
           })}
         </div>
       </main>
+      <PostForm />
     </div>
   );
 };
