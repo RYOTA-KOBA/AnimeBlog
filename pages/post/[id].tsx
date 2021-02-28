@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import Router from "next/router";
 import styles from "../../styles/Main.module.css";
 import { Post } from "./../../data/posts";
@@ -46,6 +47,10 @@ const PostPage: React.FC<PostPageProps> = (props) => {
       >
         Delete Post
       </button>
+      <br />
+      <Link href="/">
+        <a>Topへ</a>
+      </Link>
     </div>
   );
 };
