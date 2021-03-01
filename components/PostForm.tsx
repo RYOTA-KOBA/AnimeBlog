@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import Router from "next/router";
+import "../styles/Main.module.css";
 
 interface IFormInput {
   title: String;
@@ -29,20 +30,24 @@ export default function PostForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Title</label>
-      <br />
-      {errors.title && "title is required"}
-      <br />
-      <input name="title" ref={register({ required: true })} />
-      <br />
-      <label>Content</label>
-      <br />
-      {errors.content && "content is required"}
-      <br />
-      <input name="content" ref={register({ required: true })} />
-      <br />
-      <input type="submit" />
-    </form>
+    <div className="post-form-wrapper">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="post-form-inner">
+          <label>Title</label>
+          <br />
+          {errors.title && "title is required"}
+          <br />
+          <input name="title" ref={register({ required: true })} />
+          <br />
+          <label>Content</label>
+          <br />
+          {errors.content && "content is required"}
+          <br />
+          <input name="content" ref={register({ required: true })} />
+          <br />
+          <input type="submit" />
+        </div>
+      </form>
+    </div>
   );
 }
