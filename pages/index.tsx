@@ -45,7 +45,9 @@ const Home: React.FC<HomeProps> = (props) => {
           })}
         </div>
       </main>
-      <PostForm />
+      <Link href="/post/createPost">
+        <a>投稿を作成する</a>
+      </Link>
     </div>
   );
 };
