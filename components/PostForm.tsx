@@ -30,24 +30,38 @@ export default function PostForm() {
   };
 
   return (
-    <div className="post-form-wrapper">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="post-form-inner">
-          <label>Title</label>
-          <br />
-          {errors.title && "title is required"}
-          <br />
-          <input name="title" ref={register({ required: true })} />
-          <br />
-          <label>Content</label>
-          <br />
-          {errors.content && "content is required"}
-          <br />
-          <input name="content" ref={register({ required: true })} />
-          <br />
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
+    <>
+      <h1 className="post-form-header">投稿を作成</h1>
+      <div className="post-form-wrapper">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="post-form-inner">
+            <label>Title</label>
+            <br />
+            {errors.title && (
+              <p className="err-msg">タイトルの入力は必須です。</p>
+            )}
+            <input
+              className="title"
+              name="title"
+              ref={register({ required: true })}
+              type="text"
+            />
+            <br />
+            <label>Content</label>
+            <br />
+            {errors.content && (
+              <p className="err-msg">本文の入力は必須です。</p>
+            )}
+            <textarea
+              className="content"
+              name="content"
+              ref={register({ required: true })}
+            />
+            <br />
+            <input className="submit-btn" type="submit" />
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
