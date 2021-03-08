@@ -15,8 +15,53 @@ a {
   box-sizing: border-box;
 }
 
+/*************  
+post form
+***************/
+.post-form-header {
+  text-align: center;
+  margin-top: 2em;
+}
 .post-form-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 40px;
+}
+.post-form-wrapper form {
+  width: 50%;
+}
+.post-form-inner {
+  width: 100%;
+}
+.post-form-inner label {
+  font-weight: 600;
+  color: #555555;
+}
+.post-form-inner input,
+.post-form-inner textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #333333;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+.post-form-inner .title {
+  height: 40px;
+}
+.post-form-inner .content {
+  height: 80px;
+  line-height: 1rem;
+}
+.post-form-inner .submit-btn {
+  height: 40px;
+}
+.post-form-inner .err-msg {
+  color: red;
+  margin: 0;
+}
+.post-form-inner .submit-btn {
+  background-color: rgb(54, 90, 199);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
