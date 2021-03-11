@@ -23,10 +23,14 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 };
 
 const deletePost = async (id: number): Promise<void> => {
-  await fetch(`http://localhost:3000/api/post/${id}`, {
-    method: "DELETE",
-  });
-  Router.push("/");
+  const result: boolean = window.confirm("削除してもよろしいですか?");
+
+  if (result) {
+    await fetch(`http://localhost:3000/api/post/${id}`, {
+      method: "DELETE",
+    });
+    Router.push("/");
+  }
 };
 
 interface PostPageProps {
@@ -40,7 +44,7 @@ const PostPage: React.FC<PostPageProps> = (props) => {
         <title>{props.post.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>{props.post.title}</h1>
+      <h1 className="text-2xl font-semibold">{props.post.title}</h1>
       <p>{props.post.content}</p>
       <button
         className={styles.deleteButton}
