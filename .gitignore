@@ -34,5 +34,4 @@ yarn-error.log*
 .vercel
 
 /prisma/migrations
-/prisma/dev.db
 /prisma/dev.db-journal
