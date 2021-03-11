@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import Router from "next/router";
 import "../styles/Main.module.css";
+import Link from "next/link";
 
 interface IFormInput {
   title: String;
@@ -58,9 +59,16 @@ export default function PostForm() {
               ref={register({ required: true })}
             />
             <br />
-            <input className="submit-btn" type="submit" />
+            <button className="submit-btn rounded-lg" type="submit">
+              送信
+            </button>
           </div>
         </form>
+      </div>
+      <div className="toplink">
+        <Link href="/">
+          <a>Topへ</a>
+        </Link>
       </div>
     </>
   );
