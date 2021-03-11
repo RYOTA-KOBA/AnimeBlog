@@ -90,7 +90,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  width: 35%;
+  width: 350px;
   height: 200px;
   overflow: hidden;
 }
