@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "../styles/Main.module.css";
 import { Post } from "./../data/posts";
 import { PrismaClient } from "@prisma/client";
+import Footer from "../components/Footer";
 
 export const getStaticProps: GetStaticProps = async () => {
   const prisma = new PrismaClient();
@@ -30,7 +31,14 @@ const Home: React.FC<HomeProps> = (props) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to the Blog!</h1>
+        <h1 className={styles.title}>Welcome to the Anime Blog!</h1>
+        <div>
+          <Link href="/post/createPost">
+            <button className="create-post-link border rounded-lg py-1.5 px-5 bg-green-400 mt-10">
+              投稿を作成する
+            </button>
+          </Link>
+        </div>
         <div className={styles.grid}>
           {props.posts.map((p: Post) => {
             return (
@@ -44,9 +52,7 @@ const Home: React.FC<HomeProps> = (props) => {
           })}
         </div>
       </main>
-      <Link href="/post/createPost">
-        <a>投稿を作成する</a>
-      </Link>
+      <Footer />
     </div>
   );
 };

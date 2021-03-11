@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -14,6 +18,9 @@ a {
 * {
   box-sizing: border-box;
 }
+/*************  
+home
+***************/
 
 /*************  
 post form
@@ -49,7 +56,7 @@ post form
   height: 40px;
 }
 .post-form-inner .content {
-  height: 80px;
+  height: 150px;
   line-height: 1rem;
 }
 .post-form-inner .submit-btn {
@@ -64,4 +71,9 @@ post form
   color: #ffffff;
   font-weight: 600;
   font-size: 1.2rem;
+  width: 100%;
+}
+.toplink {
+  margin: 50px auto;
+  text-align: center;
 }
