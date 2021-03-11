@@ -44,18 +44,24 @@ const PostPage: React.FC<PostPageProps> = (props) => {
         <title>{props.post.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-2xl font-semibold">{props.post.title}</h1>
-      <p>{props.post.content}</p>
-      <button
-        className={styles.deleteButton}
-        onClick={() => deletePost(props.post.id)}
-      >
-        Delete Post
-      </button>
-      <br />
-      <Link href="/">
-        <a>Topへ</a>
-      </Link>
+      <div className="w-2/4 flex flex-col break-all">
+        <h1 className="text-4xl font-semibold text-center my-5">
+          {props.post.title}
+        </h1>
+        <p>{props.post.content}</p>
+        <div className="w-full flex justify-end">
+          <button
+            className="bg-red-500 text-white w-1/4 my-10 rounded-lg"
+            onClick={() => deletePost(props.post.id)}
+          >
+            Delete Post
+          </button>
+        </div>
+        <br />
+        <Link href="/">
+          <a className="text-center">Topへ</a>
+        </Link>
+      </div>
     </div>
   );
 };

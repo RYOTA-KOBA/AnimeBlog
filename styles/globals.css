@@ -15,6 +15,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  white-space: pre-wrap;
+}
+
 * {
   box-sizing: border-box;
 }
