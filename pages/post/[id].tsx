@@ -14,9 +14,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       id: Number(params.id),
     },
   });
+  const matchedPostJson = JSON.parse(JSON.stringify(matchedPost));
   return {
     props: {
-      post: matchedPost,
+      post: matchedPostJson,
     },
   };
 };
