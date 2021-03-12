@@ -46,6 +46,7 @@ const Home: React.FC<HomeProps> = (props) => {
                 <a className={styles.card}>
                   <h3>{p.title} &rarr;</h3>
                   <p>{p.content}</p>
+                  <p>{p.createdAt}</p>
                 </a>
               </Link>
             );
