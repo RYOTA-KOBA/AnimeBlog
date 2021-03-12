@@ -93,6 +93,9 @@
   width: 350px;
   height: 200px;
   overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .card:hover,
@@ -109,7 +112,7 @@
 
 .card p {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.5;
   overflow: hidden;
 }
