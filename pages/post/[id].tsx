@@ -38,6 +38,13 @@ interface PostPageProps {
 }
 
 const PostPage: React.FC<PostPageProps> = (props) => {
+  const clickHandler = (e: React.MouseEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    Router.push({
+      pathname: "/post/updatePost",
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -48,13 +55,20 @@ const PostPage: React.FC<PostPageProps> = (props) => {
         <h1 className="text-4xl font-semibold text-center my-5">
           {props.post.title}
         </h1>
-        <p>{props.post.content}</p>
+        <p className="my-5 text-center">{props.post.content}</p>
+        <p className="my-5 text-right">{props.post.createdAt}</p>
         <div className="w-full flex justify-end">
+          <button
+            className="bg-blue-500 text-white w-1/4 my-10 rounded-lg mx-5"
+            onClick={clickHandler}
+          >
+            編集
+          </button>
           <button
             className="bg-red-500 text-white w-1/4 my-10 rounded-lg"
             onClick={() => deletePost(props.post.id)}
           >
-            Delete Post
+            削除
           </button>
         </div>
         <br />
