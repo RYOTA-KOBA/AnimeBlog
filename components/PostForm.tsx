@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import Router from "next/router";
 import "../styles/Main.module.css";
 import Link from "next/link";
+import PostPreview from "./PostPreview";
 
 interface IFormInput {
   title: String;
@@ -12,6 +13,7 @@ interface IFormInput {
 
 export default function PostForm() {
   const { register, errors, handleSubmit } = useForm<IFormInput>();
+  const [markdown, setMarkdown] = useState();
 
   const onSubmit = async (data: IFormInput) => {
     console.log(data);
@@ -30,46 +32,35 @@ export default function PostForm() {
     }
   };
 
+  const setData = (e: any) => {
+    e.preventDefault();
+
+    setMarkdown(e.target.value);
+    console.log(markdown);
+  };
+
   return (
-    <>
-      <h1 className="post-form-header">投稿を作成</h1>
-      <div className="post-form-wrapper">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="post-form-inner">
-            <label>Title</label>
-            <br />
-            {errors.title && (
-              <p className="err-msg">タイトルの入力は必須です。</p>
-            )}
-            <input
-              className="title"
-              name="title"
-              ref={register({ required: true })}
-              type="text"
-            />
-            <br />
-            <label>Content</label>
-            <br />
-            {errors.content && (
-              <p className="err-msg">本文の入力は必須です。</p>
-            )}
-            <textarea
-              className="content"
-              name="content"
-              ref={register({ required: true })}
-            />
-            <br />
-            <button className="submit-btn rounded-lg" type="submit">
-              送信
-            </button>
-          </div>
+    <div className="post-form">
+      <h1 className="text-center font-bold text-4xl py-10">投稿を作成</h1>
+      <div className="editor h-screen pt-5 flex justify-between">
+        <form className="h-full w-1/2 ml-10 text-center">
+          {/* <input type="text" /> */}
+          <textarea
+            name="md"
+            id="md"
+            placeholder="Markdownで記述"
+            className="markdown-form resize-none w-full h-4/6 border shadow-xl mb-5 rounded-xl focus:outline-none py-4 px-2"
+            // ref={markdownRef}
+            value={markdown}
+            onChange={setData}
+          ></textarea>
+          <input
+            type="submit"
+            className="submit-post w-36 h-10 my-8 rounded-md font-bold"
+          />
         </form>
+        <PostPreview markdown={markdown} />
       </div>
-      <div className="toplink">
-        <Link href="/">
-          <a>Topへ</a>
-        </Link>
-      </div>
-    </>
+    </div>
   );
 }
