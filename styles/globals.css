@@ -22,6 +22,20 @@ p {
 * {
   box-sizing: border-box;
 }
+
+.markdown-preview::-webkit-scrollbar,
+.markdown-form::-webkit-scrollbar {
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  width: 10px;
+}
+
+.markdown-preview::-webkit-scrollbar-thumb,
+.markdown-form::-webkit-scrollbar-thumb {
+  background-color: #ffd803;
+  border-radius: 0.75rem;
+}
+
 /*************  
 home
 ***************/
@@ -29,6 +43,12 @@ home
 /*************  
 post form
 ***************/
+.post-form {
+  background-color: #e3f6f5;
+}
+.submit-post {
+  background-color: #ffd803;
+}
 .post-form-header {
   text-align: center;
   margin-top: 2em;
